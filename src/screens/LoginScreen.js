@@ -4,7 +4,7 @@ import ButtonCustom from '../components/ButtonCustom';
 import FormField from '../components/FormField';
 import { colors } from '../config/theme';
 import { useAuth } from '../context/AuthContext';
-import { useLanguage } from '../context/LanguageContext';
+import { useLanguage } from '../context/LenguageContext';
 import { validateEmail } from '../utils/validators';
 
 export default function LoginScreen() {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { colors } from '../config/theme';
-import { useLanguage } from '../context/LanguageContext';
+import { useLanguage } from '../context/LenguageContext';
 
 export default function FormField({ label, error, style, ...inputProps }) {
   const { t } = useLanguage();

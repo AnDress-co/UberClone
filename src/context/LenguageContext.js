@@ -2,10 +2,10 @@ import React, { createContext, useCallback, useContext, useEffect, useMemo, useS
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { translations } from '../i18n/translations';
 
-const LanguageContext = createContext(null);
+const LenguageContext = createContext(null);
 const STORAGE_KEY = 'pref:language';
 
-export function LanguageProvider({ children }) {
+export function LenguageProvider({ children }) {
   const [lang, setLangState] = useState('es');
 
   useEffect(() => {
@@ -27,7 +27,7 @@ export function LanguageProvider({ children }) {
   );
 
   const value = useMemo(() => ({ lang, setLang, t }), [lang, setLang, t]);
-  return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
+  return <LenguageContext.Provider value={value}>{children}</LenguageContext.Provider>;
 }
 
-export const useLanguage = () => useContext(LanguageContext);
+export const useLanguage = () => useContext(LenguageContext);
