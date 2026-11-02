@@ -36,7 +36,7 @@ export default function DocumentsTab() {
       ]);      
       await createDriverProfile(user.uid, buildDriverDocument(form, { photo, vehiclePhoto, licensePhoto, soatPhoto, techPhoto }));
     } catch {
-      setSubmitError('err.submit');
+      setSubmitError('err.submit');      
       setSubmitting(false);
     }
   };

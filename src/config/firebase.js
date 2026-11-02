@@ -8,16 +8,16 @@ const app = getApps().length ? getApp() : initializeApp(ENV.firebase);
 
 let auth;
 try {
-  auth = initializeAuth(app, { persistence: getReactNativePersistence(AsyncStorage) });
+    auth = initializeAuth(app, { persistence: getReactNativePersistence(AsyncStorage) });
 } catch {
-  auth = getAuth(app);
+    auth = getAuth(app);
 }
 
 let db;
 try {
-  db = initializeFirestore(app, { experimentalAutoDetectLongPolling: true });
+    db = initializeFirestore(app, { experimentalAutoDetectLongPolling: true });
 } catch {
-  db = getFirestore(app);
+    db = getFirestore(app);
 }
 
 export { app, auth, db };

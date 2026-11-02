@@ -6,11 +6,11 @@ import RegistrationTabs from './RegistrationTabs';
 import LoginScreen from '../screens/LoginScreen';
 
 export default function RootNavigator() {
-  const { user, driver, loading } = useAuth();
-  if (loading) return <View style={{ flex: 1, justifyContent: 'center' }}><ActivityIndicator size="large" /></View>;
-  return (
-    <NavigationContainer>
-      {user ? <RegistrationTabs /> : <LoginScreen />}
-    </NavigationContainer>
-  );
+    const { user, driver, loading } = useAuth();
+    if (loading) return <View style={{ flex: 1, justifyContent: 'center' }}><ActivityIndicator size="large" /></View>;
+    return (
+        <NavigationContainer>
+            {user ? <RegistrationTabs /> : <LoginScreen />}
+        </NavigationContainer>
+    );
 }
