@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { KeyboardAvoidingView, Platform, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { KeyboardAvoidingView, Platform, ScrollView, StyleSheet, Text, View, Image } from 'react-native';
 import ButtonCustom from '../components/ButtonCustom';
 import FormField from '../components/FormField';
 import { colors } from '../config/theme';
@@ -37,7 +37,8 @@ export default function LoginScreen() {
   return (
     <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
       <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
-        <Text style={styles.logo}>UberClone</Text>
+        <Image source={require('../../assets/icon.png')} style={{ width: 120, height: 120, alignSelf: 'center', marginBottom: 20 }} />
+        <Text style={styles.title}>{t('login.title')}</Text>
         <Text style={styles.sub}>{t('login.subtitle')}</Text>
         <FormField label={t('field.email')} value={email} onChangeText={setEmail} keyboardType="email-address" error={emailError} />
         <FormField label={t('field.password')} value={password} onChangeText={setPassword} secureTextEntry error={passError} />
@@ -60,7 +61,7 @@ export default function LoginScreen() {
 
 const styles = StyleSheet.create({
   container: { flexGrow: 1, justifyContent: 'center', padding: 24, backgroundColor: colors.bg },
-  logo: { fontSize: 34, fontWeight: '800', color: colors.text, textAlign: 'center' },
+  title: { fontSize: 30, fontWeight: '800', color: colors.text, textAlign: 'center' },
   sub: { textAlign: 'center', color: colors.muted, marginBottom: 28, marginTop: 4 },
   error: { color: colors.danger, marginBottom: 10, textAlign: 'center' },
   langRow: { flexDirection: 'row', gap: 10, marginTop: 24 },

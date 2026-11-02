@@ -9,7 +9,7 @@ export default function RootNavigator() {
   if (loading) return <View style={{ flex: 1, justifyContent: 'center' }}><ActivityIndicator size="large" /></View>;
   return (
     <NavigationContainer>
-      {user ? <LoginScreen/> : null}
+      <LoginScreen />
     </NavigationContainer>
   );
 }
