@@ -30,4 +30,4 @@ export function LenguageProvider({ children }) {
   return <LenguageContext.Provider value={value}>{children}</LenguageContext.Provider>;
 }
 
-export const useLanguage = () => useContext(LenguageContext);
+export const useLenguage = () => useContext(LenguageContext);

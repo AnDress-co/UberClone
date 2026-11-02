@@ -8,7 +8,7 @@ const es = {
 
     'nav.home': 'Inicio', 'nav.history': 'Historial de carreras', 'nav.earnings': 'Ganancias', 'nav.profile': 'Perfil y configuración',
 
-    'register.title': 'Registro de conductor', 'register.submit': 'Enviar registro',
+    'register.title': 'Registro', 'register.submit': 'Enviar registro',
     'tab.personal': 'Datos personales', 'tab.vehicle': 'Vehículo', 'tab.documents': 'Documentos y pagos',
 
     'field.photo': 'Foto de perfil', 'field.fullName': 'Nombre completo', 'field.documentId': 'Documento de identidad',
@@ -89,7 +89,7 @@ const en = {
 
     'nav.home': 'Home', 'nav.history': 'Trip history', 'nav.earnings': 'Earnings', 'nav.profile': 'Profile & settings',
 
-    'register.title': 'Driver registration', 'register.submit': 'Submit registration',
+    'register.title': 'Registration', 'register.submit': 'Submit registration',
     'tab.personal': 'Personal data', 'tab.vehicle': 'Vehicle', 'tab.documents': 'Documents & payments',
 
     'field.photo': 'Profile photo', 'field.fullName': 'Full name', 'field.documentId': 'ID number',

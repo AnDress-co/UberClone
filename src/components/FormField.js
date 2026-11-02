@@ -1,10 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { colors } from '../config/theme';
-import { useLanguage } from '../context/LenguageContext';
+import { useLenguage } from '../context/LenguageContext';
 
 export default function FormField({ label, error, style, ...inputProps }) {
-  const { t } = useLanguage();
+  const { t } = useLenguage();
   return (
     <View style={[styles.wrap, style]}>
       <Text style={styles.label}>{label}</Text>

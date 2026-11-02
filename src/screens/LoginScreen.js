@@ -4,11 +4,11 @@ import ButtonCustom from '../components/ButtonCustom';
 import FormField from '../components/FormField';
 import { colors } from '../config/theme';
 import { useAuth } from '../context/AuthContext';
-import { useLanguage } from '../context/LenguageContext';
+import { useLenguage } from '../context/LenguageContext';
 import { validateEmail } from '../utils/validators';
 
 export default function LoginScreen() {
-  const { t, lang, setLang } = useLanguage();
+  const { t, lang, setLang } = useLenguage();
   const { signIn, signUp } = useAuth();
   const [mode, setMode] = useState('login');
   const [email, setEmail] = useState('');
@@ -37,7 +37,7 @@ export default function LoginScreen() {
   return (
     <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
       <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
-        <Image source={require('../../assets/icon.png')} style={{ width: 120, height: 120, alignSelf: 'center', marginBottom: 20 }} />
+        <Image source={require('../../assets/icon.png')} style={{ width: 100, height: 100, alignSelf: 'center', marginBottom: 15 }} />
         <Text style={styles.title}>{t('login.title')}</Text>
         <Text style={styles.sub}>{t('login.subtitle')}</Text>
         <FormField label={t('field.email')} value={email} onChangeText={setEmail} keyboardType="email-address" error={emailError} />

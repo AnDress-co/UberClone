@@ -2,6 +2,7 @@ import React from 'react';
 import { ActivityIndicator, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { useAuth } from '../context/AuthContext';
+import RegistrationTabs from './RegistrationTabs';
 import LoginScreen from '../screens/LoginScreen';
 
 export default function RootNavigator() {
@@ -9,7 +10,7 @@ export default function RootNavigator() {
   if (loading) return <View style={{ flex: 1, justifyContent: 'center' }}><ActivityIndicator size="large" /></View>;
   return (
     <NavigationContainer>
-      <LoginScreen />
+      {user ? <RegistrationTabs /> : <LoginScreen />}
     </NavigationContainer>
   );
 }
