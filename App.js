@@ -6,18 +6,21 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { AuthProvider } from './src/context/AuthContext';
 import { LenguageProvider } from './src/context/LenguageContext';
 import RootNavigator from './src/navigation/RootNavigator';
+import { TripProvider } from './src/context/TripContext';
 
 export default function App() {
-  return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <SafeAreaProvider>
-        <LenguageProvider>
-          <AuthProvider>            
-            <RootNavigator />
-            <StatusBar style="auto" />
-          </AuthProvider>
-        </LenguageProvider>
-      </SafeAreaProvider>
-    </GestureHandlerRootView>
-  );
+    return (
+        <GestureHandlerRootView style={{ flex: 1 }}>
+            <SafeAreaProvider>
+                <LenguageProvider>
+                    <AuthProvider>
+                        <TripProvider>
+                            <RootNavigator />
+                            <StatusBar style="auto" />
+                        </TripProvider>
+                    </AuthProvider>
+                </LenguageProvider>
+            </SafeAreaProvider>
+        </GestureHandlerRootView>
+    );
 }
