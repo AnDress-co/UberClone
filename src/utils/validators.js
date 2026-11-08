@@ -70,7 +70,7 @@ export function validateVehicle(f, now = new Date()) {
 export function validateDocuments(f, now = new Date()) {
   const e = {};
   if (isEmpty(f.licenseNumber)) e.licenseNumber = 'err.required';
-  else if (!/^\d{5,15}$/.test(f.licenseNumber.trim())) e.licenseNumber = 'err.numeric';
+  else if (!/^\d{5,10}$/.test(f.licenseNumber.trim())) e.licenseNumber = 'err.numeric';
   if (isEmpty(f.licensePhoto)) e.licensePhoto = 'err.required';
 
   const expiry = (key) => {

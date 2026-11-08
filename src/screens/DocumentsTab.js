@@ -55,7 +55,7 @@ export default function DocumentsTab() {
   return (
     <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
       <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
-        <FormField label={t('field.licenseNumber')} value={form.licenseNumber} onChangeText={(v) => setField('licenseNumber', v.replace(/\D/g, ''))} onBlur={() => touch('licenseNumber')} error={err('licenseNumber')} keyboardType="number-pad" maxLength={15} />
+        <FormField label={t('field.licenseNumber')} value={form.licenseNumber} onChangeText={(v) => setField('licenseNumber', v.replace(/\D/g, ''))} onBlur={() => touch('licenseNumber')} error={err('licenseNumber')} keyboardType="number-pad" maxLength={10} />
         <ImageField label={t('field.licensePhoto')} uri={form.licensePhoto} onChange={(v) => setField('licensePhoto', v)} error={err('licensePhoto')} />
         <DateField label={t('field.licenseExpiry')} value={form.licenseExpiry} onChange={(v) => setField('licenseExpiry', v)} error={err('licenseExpiry')} minimumDate={tomorrow} />
 

@@ -21,9 +21,9 @@ export default function DataPersonalTab() {
         <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
             <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
                 <ImageField rounded label={t('field.photo')} uri={form.photo} onChange={(v) => setField('photo', v)} error={err('photo')} />
-                <FormField label={t('field.fullName')} value={form.fullName} onChangeText={(v) => setField('fullName', v)} onBlur={() => touch('fullName')} error={err('fullName')} autoCapitalize="words" maxLength={60} />
-                <FormField label={t('field.documentId')} value={form.documentId} onChangeText={(v) => setField('documentId', v.replace(/\D/g, ''))} onBlur={() => touch('documentId')} error={err('documentId')} keyboardType="number-pad" maxLength={12} />
-                <FormField label={t('field.phone')} value={form.phone} onChangeText={(v) => setField('phone', v.replace(/\D/g, ''))} onBlur={() => touch('phone')} error={err('phone')} keyboardType="phone-pad" maxLength={12} />
+                <FormField label={t('field.fullName')} value={form.fullName} onChangeText={(v) => setField('fullName', v)} onBlur={() => touch('fullName')} error={err('fullName')} autoCapitalize="words" maxLength={50} />
+                <FormField label={t('field.documentId')} value={form.documentId} onChangeText={(v) => setField('documentId', v.replace(/\D/g, ''))} onBlur={() => touch('documentId')} error={err('documentId')} keyboardType="number-pad" maxLength={10} />
+                <FormField label={t('field.phone')} value={form.phone} onChangeText={(v) => setField('phone', v.replace(/\D/g, ''))} onBlur={() => touch('phone')} error={err('phone')} keyboardType="phone-pad" maxLength={10} />
                 <DateField label={t('field.birthDate')} value={form.birthDate} onChange={(v) => setField('birthDate', v)} error={err('birthDate')} maximumDate={today} initialDate={eighteenYearsAgo} />
                 <DropDown label={t('field.gender')} value={form.gender} onChange={(v) => setField('gender', v)} options={genders} error={err('gender')} />
                 <FormField label={t('field.email')} value={form.email} onChangeText={(v) => setField('email', v)} onBlur={() => touch('email')} error={err('email')} keyboardType="email-address" />
