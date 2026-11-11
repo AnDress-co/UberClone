@@ -22,7 +22,10 @@ export function subscribeRequests({ category, uid }, onData) {
         .sort((a, b) => (a.createdAt?.toMillis?.() ?? 0) - (b.createdAt?.toMillis?.() ?? 0));
       onData(list);
     },
-    () => onData([])
+    (error) => {
+      console.error('[subscribeRequests] Firestore listener failed:', error);
+      onData([]);
+    }
   );
 }
 
@@ -76,7 +79,14 @@ export async function fetchHistoryPage({ uid, since, until, method, cursor }) {
   parts.push(orderBy('createdAt', 'desc'));
   if (cursor) parts.push(startAfter(cursor));
   parts.push(limit(PRICING.historyPageSize));
-  const snap = await getDocs(query(tripsCol(), ...parts));
+  const historyQuery = query(tripsCol(), ...parts);
+  let snap;
+  try {
+    snap = await getDocs(historyQuery);
+  } catch (error) {
+    console.error('[fetchHistoryPage] Firestore query failed:', error);
+    throw error;
+  }
   return {
     trips: snap.docs.map(withId).filter((t) => HISTORY_STATUSES.includes(t.status)),
     cursor: snap.docs.length ? snap.docs[snap.docs.length - 1] : null,

@@ -1,4 +1,5 @@
 export const ENV = {
+    backendUrl: process.env.EXPO_PUBLIC_BACKEND_URL,
     cloudinaryCloudName: process.env.EXPO_PUBLIC_CLOUDINARY_CLOUD_NAME,
     cloudinaryUploadPreset: process.env.EXPO_PUBLIC_CLOUDINARY_UPLOAD_PRESET,
     googleMapsKey: process.env.EXPO_PUBLIC_GOOGLE_MAPS_API_KEY,    

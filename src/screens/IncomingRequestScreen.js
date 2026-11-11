@@ -74,7 +74,6 @@ export default function IncomingRequestScreen({ route }) {
         () => (trip ? calculateFare({ distanceKm: trip.distanceKm, durationMin: trip.durationMin, category: trip.category, tip: trip.tip || 0 }) : null),
         [trip]
     );
-
     if (!trip) return <View style={styles.c}><Text>{t('loading')}</Text></View>;
 
     return (

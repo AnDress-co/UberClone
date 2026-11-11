@@ -16,9 +16,10 @@ export default function HistoryStack() {
             <Stack.Screen
                 name="HistoryList"
                 options={{
+                    title: false,
                     headerShown: false
                 }}                
-                component={HistoryScreen}            
+                component={HistoryScreen}
             />
             <Stack.Screen name="TripDetail" component={TripDetailScreen} options={{ title: t('history.detail') }} />
         </Stack.Navigator>

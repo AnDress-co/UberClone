@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { ActivityIndicator, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, ScrollView, StyleSheet, Text, View, Platform } from 'react-native';
 import MapView, { Marker, PROVIDER_GOOGLE, Polyline } from 'react-native-maps';
 import Card from '../components/Card';
 import StatCard from '../components/StatCard';
@@ -30,7 +30,7 @@ export default function TripDetailScreen({ route }) {
 
     return (
         <ScrollView contentContainerStyle={styles.context}>
-            <MapView ref={mapRef} style={styles.map} provider={PROVIDER_GOOGLE} onMapReady={fit}
+            <MapView ref={mapRef} style={styles.map} provider={Platform.OS === 'android' ? PROVIDER_GOOGLE : undefined} onMapReady={fit}
                 initialRegion={{ latitude: trip.origin.lat, longitude: trip.origin.lng, latitudeDelta: 0.05, longitudeDelta: 0.05 }}>
                 <Marker coordinate={{ latitude: trip.origin.lat, longitude: trip.origin.lng }} pinColor="green" />
                 <Marker coordinate={{ latitude: trip.destination.lat, longitude: trip.destination.lng }} pinColor="red" />
