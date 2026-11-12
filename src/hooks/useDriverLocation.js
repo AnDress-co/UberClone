@@ -22,9 +22,18 @@ export function useDriverLocation({ track }) {
       setPermission(status);
       if (status !== 'granted') return;
 
+      const initialPosition = await Location.getCurrentPositionAsync({
+        accuracy: Location.Accuracy.High,
+      }).catch(() => null);
+      if (initialPosition && !cancelled) {
+        setLocation({
+          lat: initialPosition.coords.latitude,
+          lng: initialPosition.coords.longitude,
+          heading: initialPosition.coords.heading,
+        });
+      }
+
       if (!track) {
-        const pos = await Location.getCurrentPositionAsync({ accuracy: Location.Accuracy.Balanced }).catch(() => null);
-        if (pos && !cancelled) setLocation({ lat: pos.coords.latitude, lng: pos.coords.longitude, heading: pos.coords.heading });
         return;
       }
 

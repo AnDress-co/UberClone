@@ -28,7 +28,7 @@ const es = {
     'category.economy': 'Económico', 'category.xl': 'XL', 'category.premium': 'Premium',
     'color.white': 'Blanco', 'color.black': 'Negro', 'color.silver': 'Plateado', 'color.gray': 'Gris', 'color.red': 'Rojo',
     'color.blue': 'Azul', 'color.green': 'Verde', 'color.yellow': 'Amarillo', 'color.other': 'Otro',
-    'method.all': 'Todos', 'method.mercadopago': 'Mercado Pago', 'method.stripe': 'Stripe', 'method.cash': 'Efectivo',
+    'method.all': 'Todos', 'method.mercadopago': 'Mercado Pago', 'method.cash': 'Efectivo',
     'period.day': 'Hoy', 'period.week': 'Semana', 'period.month': 'Mes', 'period.range': 'Rango de fechas',
     'approval.pending': 'Pendiente de aprobación', 'approval.approved': 'Aprobado', 'approval.rejected': 'Rechazado',
 
@@ -62,9 +62,8 @@ const es = {
     'summary.title': 'Cobro y resumen del viaje', 'summary.finalFare': 'Tarifa final', 'summary.commission': 'Comisión ({rate} %)',
     'summary.tip': 'Propina', 'summary.net': 'Ganancia neta', 'summary.charge': 'Cobrar con Mercado Pago', 'summary.retryCharge': 'Reintentar cobro',
     'summary.cashReceived': 'Confirmar efectivo recibido', 'summary.backHome': 'Volver al inicio',
-    'summary.stripeNotEnabled': 'Stripe no está habilitado en esta versión (usa Mercado Pago).',
     'summary.waiting': 'El estado se actualiza solo cuando la pasarela confirma el pago.',
-    'pay.approved': 'Aprobado', 'pay.pending': 'Pendiente', 'pay.rejected': 'Rechazado', 'pay.cash': 'Efectivo',
+    'pay.approved': 'Aprobado', 'pay.pending': 'Pendiente', 'pay.rejected': 'Rechazado', 'pay.cancelled': 'Cancelado', 'pay.cash': 'Efectivo',
     'status.cancelled': 'Cancelado',
 
     'earn.balance': 'Saldo del conductor', 'earn.balanceHint': 'Ganancias de viajes pagados por la pasarela menos comisiones de viajes en efectivo.',
@@ -109,7 +108,7 @@ const en = {
     'category.economy': 'Economy', 'category.xl': 'XL', 'category.premium': 'Premium',
     'color.white': 'White', 'color.black': 'Black', 'color.silver': 'Silver', 'color.gray': 'Gray', 'color.red': 'Red',
     'color.blue': 'Blue', 'color.green': 'Green', 'color.yellow': 'Yellow', 'color.other': 'Other',
-    'method.all': 'All', 'method.mercadopago': 'Mercado Pago', 'method.stripe': 'Stripe', 'method.cash': 'Cash',
+    'method.all': 'All', 'method.mercadopago': 'Mercado Pago', 'method.cash': 'Cash',
     'period.day': 'Today', 'period.week': 'Week', 'period.month': 'Month', 'period.range': 'Date range',
     'approval.pending': 'Pending approval', 'approval.approved': 'Approved', 'approval.rejected': 'Rejected',
 
@@ -143,9 +142,8 @@ const en = {
     'summary.title': 'Payment & trip summary', 'summary.finalFare': 'Final fare', 'summary.commission': 'Commission ({rate}%)',
     'summary.tip': 'Tip', 'summary.net': 'Net earnings', 'summary.charge': 'Charge with Mercado Pago', 'summary.retryCharge': 'Retry charge',
     'summary.cashReceived': 'Confirm cash received', 'summary.backHome': 'Back to home',
-    'summary.stripeNotEnabled': 'Stripe is not enabled in this version (use Mercado Pago).',
     'summary.waiting': 'The status updates by itself once the gateway confirms the payment.',
-    'pay.approved': 'Approved', 'pay.pending': 'Pending', 'pay.rejected': 'Rejected', 'pay.cash': 'Cash',
+    'pay.approved': 'Approved', 'pay.pending': 'Pending', 'pay.rejected': 'Rejected', 'pay.cancelled': 'Cancelled', 'pay.cash': 'Cash',
     'status.cancelled': 'Cancelled',
 
     'earn.balance': 'Driver balance', 'earn.balanceHint': 'Earnings from gateway-paid trips minus commissions of cash trips.',

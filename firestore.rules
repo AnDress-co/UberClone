@@ -1,0 +1,63 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function driverPath(uid) {
+      return /databases/$(database)/documents/drivers/$(uid);
+    }
+
+    function driverExists() {
+      return signedIn() && exists(driverPath(request.auth.uid));
+    }
+
+    function driverCategory() {
+      return get(driverPath(request.auth.uid)).data.vehicle.category;
+    }
+
+    function isOwnDriver(uid) {
+      return signedIn() && request.auth.uid == uid;
+    }
+
+    match /drivers/{uid} {
+      allow read: if isOwnDriver(uid);
+      allow create: if isOwnDriver(uid);
+      allow update: if isOwnDriver(uid);
+      allow delete: if false;
+    }
+
+    match /trips/{tripId} {
+      allow read: if signedIn()
+        && (
+          (
+            resource.data.status == 'requested'
+            && driverExists()
+            && resource.data.category == driverCategory()
+          )
+          || resource.data.driverId == request.auth.uid
+        );
+
+      allow update: if signedIn()
+        && (
+          resource.data.driverId == request.auth.uid
+          || (
+            resource.data.status == 'requested'
+            && driverExists()
+            && resource.data.category == driverCategory()
+            && request.resource.data.driverId == request.auth.uid
+          )
+        );
+
+      allow create: if false;
+      allow delete: if false;
+    }
+
+    match /payments/{paymentId} {
+      allow read: if signedIn() && resource.data.driverId == request.auth.uid;
+      allow write: if false;
+    }
+  }
+}
