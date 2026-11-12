@@ -31,7 +31,13 @@ app.use((req, res) => {
 app.use((error, req, res, next) => {
   console.error(error);
   if (res.headersSent) return next(error);
-  return res.status(500).json({ error: 'INTERNAL_ERROR', message: error.message });
+  const status = Number.isInteger(error.statusCode) && error.statusCode >= 400 && error.statusCode < 600
+    ? error.statusCode
+    : 500;
+  return res.status(status).json({
+    error: status === 500 ? 'INTERNAL_ERROR' : 'PAYMENT_REQUEST_FAILED',
+    message: error.message,
+  });
 });
 
 app.listen(port, '0.0.0.0', () => {

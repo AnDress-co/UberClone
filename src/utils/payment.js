@@ -5,9 +5,10 @@ export function paymentStatusKey(trip) {
         case 'cash': return 'pay.cash';
         case 'approved': return 'pay.approved';
         case 'rejected': return 'pay.rejected';
+        case 'cancelled': return 'pay.cancelled';
         default: return 'pay.pending';
     }
 }
 
 export const paymentStatusColor = (trip) =>
-    ({ 'pay.cash': colors.accent, 'pay.approved': colors.accent, 'pay.rejected': colors.danger, 'pay.pending': colors.warning }[paymentStatusKey(trip)]);
+    ({ 'pay.cash': colors.accent, 'pay.approved': colors.accent, 'pay.rejected': colors.danger, 'pay.cancelled': colors.danger, 'pay.pending': colors.warning }[paymentStatusKey(trip)]);

@@ -26,9 +26,10 @@ export default function PaymentSummaryScreen() {
     setBusy(true);
     setError('');
     try {
-      const { initPoint } = await createCheckout({ tripId: trip.id, amount: trip.fare });
-      await openCheckout(initPoint);
-    } catch {
+      const checkout = await createCheckout({ tripId: trip.id, amount: trip.fare });
+      await openCheckout(checkout.sandboxInitPoint || checkout.initPoint);
+    } catch(e) {
+      console.log(e);
       setError('err.payment');
     } finally {
       setBusy(false);
@@ -61,7 +62,6 @@ export default function PaymentSummaryScreen() {
         {!paid && trip.paymentMethod === 'mercadopago' && (
           <ButtonCustom title={trip.paymentStatus === 'rejected' ? t('summary.retryCharge') : t('summary.charge')} variant="accent" onPress={charge} loading={busy} />
         )}
-        {!paid && trip.paymentMethod === 'stripe' && <Text style={styles.muted}>{t('summary.stripeNotEnabled')}</Text>}
         {paid && <ButtonCustom title={t('summary.backHome')} onPress={finishTripFlow} />}
         {!paid && <Text style={styles.muted}>{t('summary.waiting')}</Text>}
       </View>

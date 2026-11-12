@@ -50,6 +50,11 @@ function buildTrip(input = {}) {
     'destination'
   );
 
+  const paymentMethod = input.paymentMethod || 'cash';
+  if (!['cash', 'mercadopago'].includes(paymentMethod)) {
+    throw new Error('paymentMethod debe ser cash o mercadopago.');
+  }
+
   const trip = {
     passengerId: input.passengerId || `sim-passenger-${Date.now()}`,
     passengerName: input.passengerName || 'Pasajero de prueba',
@@ -66,7 +71,7 @@ function buildTrip(input = {}) {
     driverEarnings: fare.driverEarnings,
     commissionRate: fare.commissionRate,
     currency: fare.currency,
-    paymentMethod: input.paymentMethod || 'cash',
+    paymentMethod,
     paymentStatus: 'pending',
     status: 'requested',
     rejectedBy: [],

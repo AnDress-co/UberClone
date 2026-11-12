@@ -11,7 +11,7 @@ import { formatCOP, formatDateTime } from '../utils/format';
 import { paymentStatusColor, paymentStatusKey } from '../utils/payment';
 
 const PERIODS = ['day', 'week', 'month', 'range'];
-const METHODS = ['all', 'mercadopago', 'stripe', 'cash'];
+const METHODS = ['all', 'mercadopago', 'cash'];
 
 function Chip({ label, active, onPress }) {
     return (

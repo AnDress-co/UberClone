@@ -5,6 +5,8 @@ const SCENARIOS = {
   'economy-cash': {
     category: 'economy',
     passengerName: 'Paula Sánchez',
+    passengerRating: 5,
+    tip: 1000,
     origin: { address: 'Universidad Nacional - Medellín', lat: 6.2698, lng: -75.5681 },
     destination: { address: 'Jardín Botánico de Medellín', lat: 6.2706, lng: -75.5658 },
     distanceKm: 3.8,
@@ -20,14 +22,16 @@ const SCENARIOS = {
     durationMin: 24,
     paymentMethod: 'mercadopago',
   },
-  'economy-stripe': {
+  'economy-mercadopago-2': {
     category: 'economy',
     passengerName: 'Valentina Mejía',
+    passengerRating: 4.8,
+    tip: 2000,
     origin: { address: 'Estadio Atanasio Girardot', lat: 6.2562, lng: -75.5905 },
     destination: { address: 'Museo de Antioquia', lat: 6.2518, lng: -75.5681 },
     distanceKm: 6.1,
     durationMin: 20,
-    paymentMethod: 'stripe',
+    paymentMethod: 'mercadopago',
   },
   'short-economy-cash': {
     category: 'economy',

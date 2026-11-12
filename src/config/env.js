@@ -1,5 +1,7 @@
 export const ENV = {
     backendUrl: process.env.EXPO_PUBLIC_BACKEND_URL,
+    paymentsApiUrl: process.env.EXPO_PUBLIC_PAYMENTS_API_URL || process.env.EXPO_PUBLIC_BACKEND_URL,
+    paymentReturnUrl: process.env.EXPO_PUBLIC_PAYMENT_RETURN_URL || 'uberclone-conductor://payment',
     cloudinaryCloudName: process.env.EXPO_PUBLIC_CLOUDINARY_CLOUD_NAME,
     cloudinaryUploadPreset: process.env.EXPO_PUBLIC_CLOUDINARY_UPLOAD_PRESET,
     googleMapsKey: process.env.EXPO_PUBLIC_GOOGLE_MAPS_API_KEY,    
